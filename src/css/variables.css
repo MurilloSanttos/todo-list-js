@@ -1,1 +1,154 @@
+/* ===== DESIGN SYSTEM VARIABLES ===== */
+/* Sistema baseado em tokens de design escalável */
 
+:root {
+    /* ===== COLOR PALETTE ===== */
+    /* Cores primárias - Azul profissional */
+    --color-primary-50: #eff6ff;
+    --color-primary-100: #dbeafe;
+    --color-primary-500: #3b82f6;
+    --color-primary-600: #2563eb;
+    --color-primary-700: #1d4ed8;
+
+    /* Cores semânticas */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    
+    /* Escala de neutros - Base para modo claro/escuro */
+    --color-white: #ffffff;
+    --color-gray-50: #f8fafc;
+    --color-gray-100: #f1f5f9;
+    --color-gray-200: #e2e8f0;
+    --color-gray-300: #cbd5e1;
+    --color-gray-400: #94a3b8;
+    --color-gray-500: #64748b;
+    --color-gray-600: #475569;
+    --color-gray-700: #334155;
+    --color-gray-800: #1e293b;
+    --color-gray-900: #0f172a;
+    --color-black: #000000;
+
+    /* ===== APPLICATION COLORS ===== */
+    /* Tema claro (default) */
+    --color-bg-primary: var(--color-white);
+    --color-bg-secondary: var(--color-gray-50);
+    --color-bg-tertiary: var(--color-gray-100);
+    
+    --color-text-primary: var(--color-gray-900);
+    --color-text-secondary: var(--color-gray-600);
+    --color-text-tertiary: var(--color-gray-400);
+    
+    --color-border: var(--color-gray-200);
+    --color-shadow: rgba(0, 0, 0, 0.1);
+
+    /* ===== TYPOGRAPHY ===== */
+    /* Famílias */
+    --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-family-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', 'Courier New', monospace;
+
+    /* Tamanhos - Escala modular */
+    --text-xs: 1.2rem;    /* 12px */
+    --text-sm: 1.4rem;    /* 14px */
+    --text-base: 1.6rem;  /* 16px */
+    --text-lg: 1.8rem;    /* 18px */
+    --text-xl: 2.0rem;    /* 20px */
+    --text-2xl: 2.4rem;   /* 24px */
+    --text-3xl: 3.0rem;   /* 30px */
+
+    /* Pesos */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* Line heights */
+    --leading-tight: 1.25;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.75;
+
+    /* ===== SPACING ===== */
+    /* Base scale - múltiplos de 0.4rem (4px) */
+    --space-1: 0.4rem;   /* 4px */
+    --space-2: 0.8rem;   /* 8px */
+    --space-3: 1.2rem;   /* 12px */
+    --space-4: 1.6rem;   /* 16px */
+    --space-5: 2.0rem;   /* 20px */
+    --space-6: 2.4rem;   /* 24px */
+    --space-8: 3.2rem;   /* 32px */
+    --space-10: 4.0rem;  /* 40px */
+    --space-12: 4.8rem;  /* 48px */
+    --space-16: 6.4rem;  /* 64px */
+
+    /* ===== BORDERS & SHADOWS ===== */
+    /* Border radius */
+    --radius-sm: 0.4rem;
+    --radius-base: 0.8rem;
+    --radius-md: 1.2rem;
+    --radius-lg: 1.6rem;
+    --radius-xl: 2.4rem;
+    --radius-full: 50%;
+
+    /* Border widths */
+    --border-width: 1px;
+    --border-width-2: 2px;
+
+    /* Shadows - Elevation system */
+    --shadow-sm: 0 1px 2px 0 var(--color-shadow);
+    --shadow-base: 0 1px 3px 0 var(--color-shadow), 
+                    0 1px 2px -1px var(--color-shadow);
+    --shadow-md: 0 4px 6px -1px var(--color-shadow), 
+                0 2px 4px -2px var(--color-shadow);
+    --shadow-lg: 0 10px 15px -3px var(--color-shadow), 
+                0 4px 6px -4px var(--color-shadow);
+
+    /* ===== TRANSITIONS & ANIMATIONS ===== */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 250ms ease-in-out;
+    --transition-slow: 350ms ease-in-out;
+
+    /* ===== LAYOUT ===== */
+    --container-max-width: 1200px;
+    --content-max-width: 600px;
+    
+    /* Breakpoints para media queries */
+    --breakpoint-sm: 480px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+
+    /* Z-index scale */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal: 1040;
+    --z-popover: 1050;
+    --z-tooltip: 1060;
+}
+
+/* ===== DARK MODE SUPPORT ===== */
+/* Pré-configurado para futura implementação */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg-primary: var(--color-gray-900);
+        --color-bg-secondary: var(--color-gray-800);
+        --color-bg-tertiary: var(--color-gray-700);
+        
+        --color-text-primary: var(--color-gray-100);
+        --color-text-secondary: var(--color-gray-300);
+        --color-text-tertiary: var(--color-gray-500);
+        
+        --color-border: var(--color-gray-600);
+        --color-shadow: rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* ===== UTILITY CLASSES PARA CORES ===== */
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-tertiary { color: var(--color-text-tertiary); }
+
+.bg-primary { background-color: var(--color-bg-primary); }
+.bg-secondary { background-color: var(--color-bg-secondary); }
+.bg-tertiary { background-color: var(--color-bg-tertiary); }
