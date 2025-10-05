@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List - JavaScript</title>
+    <meta name="description" content="Uma aplicação de lista de tarefas moderna desenvolvida com JavaScript puro">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/variables.css">
+    <link rel="stylesheet" href="./src/css/main.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header: Identidade visual e título -->
+        <header class="app-header" role="banner">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <span class="app-icon" aria-hidden="true">✅</span>
+                    Todo List
+                </h1>
+                <p class="app-subtitle">Organize suas tarefas de forma simples</p>
+            </div>
+        </header>
+
+        <!-- Main: Área interativa principal -->
+        <main class="app-main" role="main">
+            <!-- 
+                Seção de Adição:
+                Formulário para input de novas tarefas
+            -->
+            <section class="add-task-section" aria-labelledby="add-task-heading">
+                <h2 id="add-task-heading" class="visually-hidden">Adicionar Nova Tarefa</h2>
+                <form class="task-form" id="taskForm">
+                    <div class="input-group">
+                        <label for="taskInput" class="visually-hidden">Nova tarefa</label>
+                        <input type="text" id="taskInput" class="task-input" placeholder="Digite uma nova tarefa..." maxlength="200" aria-required="true">
+                        <button type="submit" class="add-button" aria-label="Adicionar tarefa">
+                            <span class="button-icon" aria-hidden="true">+</span>
+                            Adicionar
+                        </button>
+                    </div>
+                </form>
+            </section>
+            <!-- 
+                Seção de Status:
+                Contador e filtros
+            -->
+            <section class="tasks-status-section" aria-labelledby="status-heading">
+                <h2 id="status-heading" class="visually-hidden">Status das Tarefas</h2>
+                <div class="status-container">
+                    <div class="tasks-counter"> 
+                        <span id="pendingCount" class="counter-number">0</span>
+                        <span class="counter-text">tarefas pendentes</span>
+                    </div>
+
+                    <!-- Área reservada para futuros filtros -->
+                    <div class="tasks-filters" id="tasksFilters" hidden></div>
+                </div>
+            </section>
+
+            <!-- 
+                Seção de Listagem:
+                Container para a lista dinâmica de tarefas
+            -->
+            <section class="tasks-list-section" aria-labelledby="tasks-list-heading">
+                <h2 id="tasks-list-heading" class="visually-hidden">Lista de Tarefas</h2>
+
+                <!-- Estados da lista: vazia, carregando, com conteúdo -->
+                <div class="tasks-container">   
+                    <!-- Estado: Lista Vazia -->
+                    <div id="emptyState" class="empty-state" role="status">
+                        <p class="empty-state-text">Nenhuma tarefa cadastrada</p>
+                        <p class="empty-state-hint">Adicione uma tarefa acima para começar</p>
+                    </div>
+
+                    <!-- Estado: Lista com Conteúdo -->
+                    <ul id="tasksList" class="tasks-list" role="list" hidden></ul>
+
+                    <!-- Estado: Carregando -->
+                    <div id="loadingState" class="loading-state" role="status" hidden>
+                        <p>Carregando tarefas...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer: Informações técnicas e créditos -->
+        <footer class="app-footer" role="contentinfo">
+            <div class="footer-content">
+                <p class="footer-text">
+                    Desenvolvido com
+                    <span class="tech-stack">HTML, CSS & JavaScript</span>
+                </p>
+                <p class="footer-credits">
+                    Por <a href="https://github.com/MurilloSanttos" target="_blank" rel="noopener">Murillo Santtos</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./src/js/modules/storage.js" type="module"></script>
+    <script src="./src/js/modules/tasks.js" type="module"></script>
+    <script src="./src/js/modules/ui.js" type="module"></script>
+    <script src="./src/js/app.js" type="module"></script>
+</body>
+</html>
